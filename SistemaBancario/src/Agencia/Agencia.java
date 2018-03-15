@@ -1,6 +1,8 @@
 package Agencia;
 
-public class Agencia {
+import Operacoes.Validacao;
+
+public class Agencia implements Validacao{
 
 	private String numAg;
 
@@ -25,6 +27,12 @@ public class Agencia {
 
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
+	}
+
+	public boolean validar()
+	{
+		return true;
+		//TODO validar this.numAg'1234-0'
 	}
 
 

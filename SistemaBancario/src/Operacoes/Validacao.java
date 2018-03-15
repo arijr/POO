@@ -1,5 +1,7 @@
 package Operacoes;
 
-public class Validacao {
+public interface Validacao {
+
+  public boolean validar();
 
 }
