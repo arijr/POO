@@ -1,15 +1,15 @@
 package Conta;
 
-public class Conta {
+public abstract class Conta {
 
-	private char numConta;
+	protected String numConta;
 
-	private double saldo;
+	protected double saldo;
 
-	private char numAgencia;
+	protected String numAgencia;
+	
+	protected String cpfCliente;
+	
 
-	public void novaConta() {
-
-	}
-
+	
 }

@@ -2,10 +2,12 @@ package Cliente;
 
 public abstract class Pessoa {
 
-	private char nome;
+	protected String nome;
 
-	private char endereco;
+	protected String endereco;
 
-	private char sobrenone;
+	protected String sobrenome;
+	
+	protected String cpf;
 
 }
