@@ -11,6 +11,10 @@ public class ContaCorrente extends Conta {
 		this.numAgencia = numAgencia;
 		this.setChEspecial(chEspecial);
 	}
+	
+	public ContaCorrente() {
+		
+	}
 
 	public double getChEspecial() {
 		return chEspecial;
@@ -19,6 +23,35 @@ public class ContaCorrente extends Conta {
 	public void setChEspecial(double chEspecial) {
 		this.chEspecial = chEspecial;
 	}
+	
+	public String getNumConta() {
+		return numConta;
+	}
+
+	public void setNumConta(String numConta) {
+		this.numConta = numConta;
+	}
+
+	public String getNumAgencia() {
+		return numAgencia;
+	}
+
+	public void setNumAgencia(String numAgencia) {
+		this.numAgencia = numAgencia;
+	}
+
+	public String getCpfCliente() {
+		return cpfCliente;
+	}
+
+	public void setCpfCliente(String cpfCliente) {
+		this.cpfCliente = cpfCliente;
+	}
+
+	public void setSaldo(double saldo) {
+		this.saldo = saldo;
+	}
+
 
 	public boolean validar()
 	{

@@ -27,4 +27,16 @@ public abstract class Conta implements Validacao {
 		saldo = saldo - valor;
 	}
 
+	public String getNumConta() {
+		return numConta;
+	}
+
+	public void setNumConta(String numConta) {
+		this.numConta = numConta;
+	}
+	
+	public boolean validar() {
+		return false;
+		
+	}
 }

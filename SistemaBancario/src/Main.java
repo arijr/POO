@@ -2,95 +2,57 @@ import Agencia.*;
 import Operacoes.*;
 import Cliente.*;
 import Conta.*;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
+	static Scanner reader = new Scanner(System.in);  // Reading from System.in
+	
   public static void main(String[] args) {
 
-    ArrayList<Agencia> agencias = new ArrayList<Agencia>();
-    ArrayList<Conta> contas = new ArrayList<Conta>();
-    ArrayList<Cliente> clientes = new ArrayList<Cliente>();
-
-    Banco.criarConta("1111-1", 100, "28933928-232", "1234-1", 0);
-
-    ContaCorrente c1 = new ContaCorrente("1111-1", 100, "28933928-232", "1234-1", 0);
-    ContaCorrente c2 = new ContaCorrente("1112-1", 100, "28933928-232", "1234-1", 200);
-
-    if(c1.validar()) {
-      contas.add(c1);
-      System.out.println("conta adicionada");
-    } else {
-      System.out.println("conta nao adicionada");
+	int menu = primeiroMenu();
+    
+    while(menu != 0) {
+    	if( menu == 1) {
+    		System.out.println("Digite o numero da conta (ex:12345-67): ");
+    		String numConta = reader.next();
+    		System.out.println("Digite o numero da agencia: (ex:1234-5): ");
+    		String numAgencia = reader.next();
+    		System.out.println("Digite o saldo da conta(ex:1234): ");
+    		double saldo = reader.nextDouble();
+    		System.out.println("Digite o limite do cheque especial: (ex:12345-6): ");
+    		double chEspecial = reader.nextDouble();
+    		System.out.println("Digite o cpf do cliente(ex: 1234567890): ");
+    		String cpfCliente = reader.next();
+    		Banco.criarConta(numConta, saldo, cpfCliente, numAgencia, chEspecial);
+    	}
+    	if(menu == 2) {
+    		System.out.println("Digite o numero da agencia: (ex:1234-5):");
+    		String numAgencia = reader.next();
+    	}
+    	if(menu == 3) {
+    		System.out.println("Digite o numero da agencia: (ex:1234-5):");
+    		String numAgencia = reader.next();
+    	}
+    	if(menu == 4) {
+    		System.out.println("Digite o numero da agencia: (ex:1234-5):");
+    		String numAgencia = reader.next();
+    	}
     }
-
-    if(c2.validar()) {
-      contas.add(c2);
-      System.out.println("conta adicionada");
-    } else {
-      System.out.println("conta nao adicionada");
-    }
-
-    System.out.println("c1 saldo " + c1.getSaldo());
-    System.out.println("c2 saldo " + c2.getSaldo());
-
-    if(Acoes.transferir(c1, c2, 200)) {
-      System.out.println("Transferi");
-    } else {
-      System.out.println("Não transferi");
-    }
-
-
-    System.out.println("c1 saldo " + c1.getSaldo());
-    System.out.println("c2 saldo " + c2.getSaldo());
-
-
-    switch(primeiroMenu()) {
-      case 1:
-        int criarContaMenuResposta = criarContaMenu();
-
-        break;
-      case 2:
-        System.out.println("Criando agencia");
-        break;
-      case 3:
-        System.out.println("Criando cliente");
-        break;
-    }
-    //Ler dados da conta
-    //Scanner reader = new Scanner(System.in);  // Reading from System.in
-    //System.out.println("Enter a number: ");
-    //int n = reader.nextInt(); // Scans the next token of the input as an int.
-
-    //System.out.println(n);
-    //once finished
-    //reader.close();
-
+    System.out.println("Obrigado por utilizar os nossos serviços. =) \nencerrado com exito.");
   }
 
-  public static int primeiroMenu()
-  {
+  // String numConta, double saldo, String cpfCliente, String numAgencia, double chEspecial 
+  public static int primeiroMenu() {
     System.out.println("1 - Criar conta");
     System.out.println("2 - Criar agencia");
     System.out.println("3 - Criar cliente");
     System.out.println("4 - Transferir");
+    System.out.println("0 - Sair");
 
     //Ler dados da conta
-    Scanner reader = new Scanner(System.in);  // Reading from System.in
+    
     int n = reader.nextInt(); // Scans the next token of the input as an int.
-    reader.close();
     return n;
   }
 
-  public static int criarContaMenu()
-  {
-    System.out.println("1 - Conta Corrente");
-    System.out.println("2 - Conta Poupanca");
-
-    //Ler dados da conta
-    Scanner reader = new Scanner(System.in);  // Reading from System.in
-    int n = reader.nextInt(); // Scans the next token of the input as an int.
-    reader.close();
-    return n;
-  }
 }
